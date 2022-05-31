@@ -1,4 +1,4 @@
-ecl-io
+eclio
 ===========
 
 Library for reading and writing output files from ecl style petroleum reservoir
@@ -15,5 +15,3 @@ Similar libraries
 * equionor/ecl: ecl is your pocket knife for doing various reservoir simulation
   tasks (and more). The scope of ecl-io is limited to reading the output of ecl
   simulators without interpretation.
-
-

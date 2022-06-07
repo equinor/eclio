@@ -55,40 +55,6 @@ class TypeOfGrid(Enum):
 
 
 @unique
-class UnitSystem(Enum):
-    METRIC = 1
-    FIELD = 2
-    LAB = 3
-
-
-@unique
-class Phases(Enum):
-    OIL = 1
-    WATER = 2
-    OIL_WATER = 3
-    GAS = 4
-    OIL_GAS = 5
-    GAS_WATER = 6
-    OIL_WATER_GAS = 7
-
-
-@unique
-class Simulator(Enum):
-    ECLIPSE_100 = 100
-    ECLIPSE_300 = 300
-    ECLIPSE_300_THERMAL = 500
-    INTERSECT = 700
-    FRONTSIM = 800
-
-
-@unique
-class GroupControl(Enum):
-    NO_CONTROL = 0
-    GCONPROD = 1
-    GCONINJE = 2
-
-
-@unique
 class Units(Enum):
     METRES = auto()
     CM = auto()
@@ -336,25 +302,3 @@ class CoordinateType(Enum):
             return cls.CYLINDRICAL
         else:
             return cls.CARTESIAN
-
-
-@unique
-class GuideRateTarget(Enum):
-    NONE = 0
-    OIL = 1
-    GAS = 3
-    LIQUID = 4
-    RES = 6
-    COMBINED = 9
-
-
-@unique
-class HistoryMatchTarget(Enum):
-    NONE = 0
-    OIL = 1
-    WATER = 2
-    GAS = 3
-    LIQUID = 4
-    RES = 5
-    BHP = 7
-    COMBINED = 9

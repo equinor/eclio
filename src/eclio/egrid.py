@@ -289,12 +289,12 @@ class LGRSection:
 
     def to_ecl(self) -> List[Tuple[str, Any]]:
         result_dict = {
-            "gridhead": self.grid_head.to_ecl(),
-            "coord   ": self.coord.astype(np.float32),
-            "zcorn   ": self.zcorn.astype(np.float32),
+            "GRIDHEAD": self.grid_head.to_ecl(),
+            "COORD   ": self.coord.astype(np.float32),
+            "ZCORN   ": self.zcorn.astype(np.float32),
         }
         if self.actnum is not None:
-            result_dict["actnum  "] = self.actnum.astype(np.int32)
+            result_dict["ACTNUM  "] = self.actnum.astype(np.int32)
         result_dict["LGR     "] = [self.name]
         if self.parent is not None:
             result_dict["LGRPARNT"] = [self.parent]
@@ -360,12 +360,12 @@ class GlobalGrid:
 
     def to_ecl(self) -> List[Tuple[str, Any]]:
         result_dict = {
-            "gridhead": self.grid_head.to_ecl(),
-            "coord   ": self.coord.astype(np.float32),
-            "zcorn   ": self.zcorn.astype(np.float32),
+            "GRIDHEAD": self.grid_head.to_ecl(),
+            "COORD   ": self.coord.astype(np.float32),
+            "ZCORN   ": self.zcorn.astype(np.float32),
         }
         if self.actnum is not None:
-            result_dict["actnum  "] = self.actnum.astype(np.int32)
+            result_dict["ACTNUM  "] = self.actnum.astype(np.int32)
         if self.coord_sys is not None:
             result_dict["COORDSYS"] = self.coord_sys.to_ecl()
         if self.boxorig is not None:

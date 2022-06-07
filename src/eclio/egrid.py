@@ -263,8 +263,8 @@ class LGRSection:
     grid_head: GridHead
     coord: np.ndarray
     zcorn: np.ndarray
+    name: str
     actnum: Optional[np.ndarray] = None
-    name: Optional[str] = None
     parent: Optional[str] = None
     grid_parent: Optional[str] = None
     hostnum: Optional[np.ndarray] = None
@@ -286,10 +286,6 @@ class LGRSection:
             and self.boxorig == other.boxorig
             and self.coord_sys == other.coord_sys
         )
-
-    def __post_init__(self):
-        if self.name is None:
-            raise TypeError("Missing parameter to LGRSection: name")
 
     def to_ecl(self) -> List[Tuple[str, Any]]:
         result_dict = {

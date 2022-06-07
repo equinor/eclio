@@ -5,7 +5,7 @@ import eclio.egrid as egrid
 import hypothesis.strategies as st
 import numpy as np
 import pytest
-from hypothesis import given, note
+from hypothesis import given
 
 from .egrid_generator import egrids, grid_heads
 
@@ -15,15 +15,13 @@ def test_to_ecl_from_ecl_are_inverse(grid_head):
     assert type(grid_head).from_ecl(grid_head.to_ecl())
 
 
-@given(egrids())
-def test_to_from_file_are_inverse(grid):
+@given(egrids(), st.sampled_from(["egrid", None]))
+def test_to_from_file_are_inverse(grid, fileformat):
     buff = io.BytesIO()
-    grid.to_file(buff)
+    grid.to_file(buff, fileformat)
 
     buff.seek(0)
-
-    note(str(buff.getvalue()))
-    assert grid == egrid.EGrid.from_file(buff)
+    assert grid == egrid.EGrid.from_file(buff, fileformat)
 
 
 @pytest.mark.parametrize(

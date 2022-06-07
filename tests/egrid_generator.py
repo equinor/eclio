@@ -13,7 +13,6 @@ from eclio.egrid import EGrid, GridFormat, RockModel
 from .ecl_output_generator import (
     coordinate_types,
     gdorients,
-    grid_relatives,
     gridunits,
     map_axes,
     types_of_grid,

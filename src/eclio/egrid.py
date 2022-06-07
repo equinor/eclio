@@ -544,47 +544,6 @@ class EGrid:
     nnc_sections: List[Union[NNCSection, AmalgamationSection]]
 
     @classmethod
-    def default_settings_grid(
-        cls,
-        coord: np.ndarray,
-        zcorn: np.ndarray,
-        actnum: Optional[np.ndarray],
-        size: Tuple[int, int, int],
-    ):
-        grid_head = GridHead(
-            TypeOfGrid.CORNER_POINT,
-            *size,
-            1,
-            1,
-            1,
-            CoordinateType.CARTESIAN,
-            (0, 0, 0),
-            (0, 0, 0),
-        )
-        global_grid = GlobalGrid(
-            grid_head,
-            coord,
-            zcorn,
-            actnum,
-        )
-        return EGrid(
-            EGridHead(
-                Filehead(
-                    3,
-                    2007,
-                    3,
-                    TypeOfGrid.CORNER_POINT,
-                    RockModel.SINGLE_PERMEABILITY_POROSITY,
-                    GridFormat.IRREGULAR_CORNER_POINT,
-                ),
-                gridunit=GridUnit(),
-            ),
-            global_grid,
-            [],
-            [],
-        )
-
-    @classmethod
     def from_file(cls, filelike, fileformat: str = None):
         """
         Read an egrid file

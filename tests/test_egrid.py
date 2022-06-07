@@ -5,9 +5,25 @@ import eclio.egrid as egrid
 import hypothesis.strategies as st
 import numpy as np
 import pytest
-from hypothesis import HealthCheck, assume, given, settings
+from hypothesis import given, note
 
-from .egrid_generator import egrids, lgr_sections
+from .egrid_generator import egrids, grid_heads
+
+
+@given(grid_heads())
+def test_to_ecl_from_ecl_are_inverse(grid_head):
+    assert type(grid_head).from_ecl(grid_head.to_ecl())
+
+
+@given(egrids())
+def test_to_from_file_are_inverse(grid):
+    buff = io.BytesIO()
+    grid.to_file(buff)
+
+    buff.seek(0)
+
+    note(str(buff.getvalue()))
+    assert grid == egrid.EGrid.from_file(buff)
 
 
 @pytest.mark.parametrize(

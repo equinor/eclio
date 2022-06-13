@@ -1,4 +1,4 @@
-import eclio.egrid as eio
+import eclio.egrid_contents as eio
 import hypothesis.strategies as st
 import numpy as np
 from hypothesis.extra.numpy import arrays
@@ -8,7 +8,7 @@ indices = st.integers(min_value=4, max_value=6)
 finites = st.floats(
     min_value=-100.0, max_value=100.0, allow_nan=False, allow_infinity=False, width=32
 )
-from eclio.egrid import EGrid, GridFormat, RockModel
+from eclio.egrid_contents import EGrid, GridFormat, RockModel
 
 from .ecl_output_generator import (
     coordinate_types,

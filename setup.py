@@ -19,7 +19,12 @@ setup(
     license="LGPL-3.0",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
-    install_requires=["dataclasses>=0.6;python_version<'3.7'", "numpy", "ecl_data_io"],
+    install_requires=[
+        "dataclasses>=0.6;python_version<'3.7'",
+        "numpy",
+        "ecl_data_io",
+        "typing_extensions",
+    ],
     platforms="any",
     classifiers=[
         "Development Status :: 1 - Planning",

@@ -1,7 +1,7 @@
 import io
 
 import ecl_data_io as eclio
-import eclio.egrid as egrid
+import eclio.egrid_contents as egrid
 import hypothesis.strategies as st
 import numpy as np
 import pytest

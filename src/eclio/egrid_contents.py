@@ -6,6 +6,9 @@ There is an alternate data layout (in addition to that of grdecl files), called
 unstructured, which is not widely supported. ecl-io does not currently support
 that format.
 
+Additionally, multiple reservoirs (numres != 1) and multiple coordinate
+line segments (nseg != 1) is not supported.
+
 The package ecl-data-io handles the carrying format and outputs pairs of
 keywords and data values.The enums in this file generally describe a range of
 values for a position in one of these lists, the dataclasses describe the
@@ -725,7 +728,7 @@ class EGridReader:
         def check_gridhead(kw: str, value):
             if kw == "GRIDHEAD" and value.type_of_grid != TypeOfGrid.CORNER_POINT:
                 raise NotImplementedError(
-                    "XTGeo does not support unstructured or mixed grids."
+                    "eclio does not support unstructured or mixed grids."
                 )
 
         params = self.read_section(
